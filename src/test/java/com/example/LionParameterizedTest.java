@@ -1,4 +1,5 @@
 package com.example;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -6,18 +7,15 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import static org.junit.Assert.*;
+
+import static org.junit.Assert.assertEquals;
 
 @RunWith(Parameterized.class)
 public class LionParameterizedTest {
-     /*
-    Вывел параметризированный тест в отдельный класс по совету преподавателя, т.к., в теории,
-    он мог повлиять на другие тесты в том же классе, которые не использую параметры
-     */
 
     @Before
     public void setUp() {
-        MockitoAnnotations.openMocks(this); //Т.к. RunWith уже есть для параметризации
+        MockitoAnnotations.openMocks(this);
     }
 
     private final String checkedSex;
@@ -39,7 +37,6 @@ public class LionParameterizedTest {
 
     @Mock
     Feline mockFeline;
-    //Т.к. метод doesHaveMane не использует feline
     @Test
     public void lionDoesHaveManeCompareManePresenceWithParametersTest() {
         try {

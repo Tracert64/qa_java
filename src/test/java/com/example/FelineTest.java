@@ -1,17 +1,15 @@
 package com.example;
+
 import org.junit.Assert;
 import org.junit.Test;
+
 import java.util.List;
-import static org.junit.Assert.*;
+
+import static org.junit.Assert.assertEquals;
 
 public class FelineTest {
 
     Feline testFeline;
-    /*
-    Рассматривал также вариант сразу тут написать Feline testFeline = new Feline();, ведь объект для всех тестов
-    используется одинаковый и не изменяется. Таким образом сделал в не параметризированном тесте на Льва.
-    */
-
     @Test
     public void felineEatMeatWillReturnMeatListTest() {
         testFeline = new Feline();
@@ -35,10 +33,6 @@ public class FelineTest {
 
     @Test
     public void felineGetKittensWithoutArgumentWillReturnOneTest() {
-        /*
-        Этот тест отдельно, от того, что в классе FelineParameterizedTest,
-        чтобы проверить, что без аргументов метод getKittens() действительно вернет "1".
-        */
         testFeline = new Feline();
         int actualKittensCOunt = testFeline.getKittens();
         int expectedKittensCount = 1;

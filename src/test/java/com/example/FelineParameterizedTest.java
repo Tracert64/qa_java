@@ -1,15 +1,13 @@
 package com.example;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import static org.junit.Assert.*;
+
+import static org.junit.Assert.assertEquals;
 
 @RunWith(Parameterized.class)
 public class FelineParameterizedTest {
-    /*
-    Вывел параметризированный тест в отдельный класс по совету преподавателя, т.к., в теории,
-    он мог повлиять на другие тесты в том же классе, которые не использую параметры
-     */
 
     private final int checkedNumber;
     private final int expectedKittensCount;

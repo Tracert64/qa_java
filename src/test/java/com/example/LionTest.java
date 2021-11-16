@@ -1,11 +1,14 @@
 package com.example;
+
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
+
 import java.util.List;
-import static org.junit.Assert.*;
+
+import static org.junit.Assert.assertEquals;
 
 @RunWith(MockitoJUnitRunner.class)
 public class LionTest {
@@ -42,7 +45,6 @@ public class LionTest {
 
     @Mock
     Feline mockFeline;
-    //Использовал мок, т.к. исключению не важен null в первом параметре
     @Test
     public void lionSexExceptionMessageHaveCorrectTextTest() {
         try {
@@ -55,19 +57,5 @@ public class LionTest {
         }
     }
 
-    /*
-    Другой вариант проверки исключения был такой:
-    @Rule
-    public ExpectedException exceptionRule = ExpectedException.none();
-    @Test
-    public void whenExceptionThrown_thenRuleIsApplied() throws Exception {
-        Feline f = new Feline();
-        exceptionRule.expect(Exception.class);
-        exceptionRule.expectMessage("Используйте допустимые значения пола животного - самец или самка");
-        Lion l = new Lion(testFeline, "Некорректный тест");
-    }
 
-    Он тоже отрабатывал успешно. Но у ExpectedException.none(); - "none" зачеркивает, устаревший.
-    Поэтому показался этот вариант не "красивым".
-     */
 }
