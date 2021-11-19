@@ -1,6 +1,7 @@
 package com.example;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -13,16 +14,11 @@ import static org.junit.Assert.assertEquals;
 @RunWith(MockitoJUnitRunner.class)
 public class LionTest {
 
-    Feline testFeline = new Feline();
+    Feline testFeline;
     Lion testLion;
-    {
-        try {
-            testLion = new Lion(testFeline, "Самка");
-        } catch (Exception lionSexException) {
-            lionSexException.printStackTrace();
-        }
+    @Before public void prep() throws Exception{ testFeline = new Feline();
+        testLion = new Lion(testFeline, "Самка");
     }
-
 
     @Test
     public void lionGetKittensWillReturnOneTest() {
@@ -48,7 +44,7 @@ public class LionTest {
     @Test
     public void lionSexExceptionMessageHaveCorrectTextTest() {
         try {
-            Lion lionWithIncorrectSex = new Lion(mockFeline, "Некорректный пол");
+            new Lion(mockFeline, "Некорректный пол");
         }
         catch (Exception lionSexException) {
             String actualExceptionText = lionSexException.getMessage();

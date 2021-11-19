@@ -1,6 +1,5 @@
 package com.example;
 
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -26,17 +25,15 @@ public class CatTest {
     }
 
     @Test
-    public void catGetFoodWillReturnMeatListTest() {
+    public void catGetFoodWillReturnMeatListTest() throws Exception{
         Feline testFeline = new Feline();
         Cat testCat = new Cat(testFeline);
-        try {
             List<String> actualFoodReturn = testCat.getFood();
             List<String> expectedFoodReturn = List.of("Животные", "Птицы", "Рыба");
             assertEquals(expectedFoodReturn, actualFoodReturn);
         }
-        catch (Exception animalFoodException) {
-            Assert.fail("Exception " + animalFoodException);
-        }
 
-    }
+
+
+
 }

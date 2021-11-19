@@ -1,6 +1,5 @@
 package com.example;
 
-import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.List;
@@ -11,17 +10,11 @@ public class FelineTest {
 
     Feline testFeline;
     @Test
-    public void felineEatMeatWillReturnMeatListTest() {
+    public void felineEatMeatWillReturnMeatListTest() throws Exception{
         testFeline = new Feline();
-        try {
             List<String> actualFoodReturn = testFeline.eatMeat();
             List<String> expectedFoodReturn = List.of("Животные", "Птицы", "Рыба");
-            assertEquals(expectedFoodReturn, actualFoodReturn);
-        }
-        catch (Exception e) {
-            Assert.fail("Exception " + e);
-        }
-    }
+            assertEquals(expectedFoodReturn, actualFoodReturn); }
 
     @Test
     public void felineGetFamilyWillReturnFelineTest() {
